@@ -1,3 +1,4 @@
+
 {
   "description": "Konfigurasi untuk 34 portal berita. Edit nilai di bawah sesuai kebutuhan dan jalankan generate-sites.js",
   "basePath": "../",
@@ -12,7 +13,7 @@
       "colors": {
         "primary": "#1E3A8A",
         "dark": "#0B1F3A",
-        "secondary": "#31404B"
+        "secondary": "#1F5F1F"
       }
     },
     {
@@ -30,13 +31,13 @@
     {
       "id": 3,
       "folderName": "site-03-portal3",
-      "siteName": "Warta Janten",
-      "email": "wartajanten@gmail.com",
-      "socialHandle": "wartajanten",
+      "siteName": "Jabar Bersuara",
+      "email": "jabarbersuara@gmail.com",
+      "socialHandle": "jabarbersuara",
       "colors": {
-        "primary": "#065F46",
-        "dark": "#022C22",
-        "secondary": "#1E3A5F"
+        "primary": "#0EA5E9",
+        "dark": "#075985",
+        "secondary": "#1F5F1F"
       }
     },
     {
@@ -322,8 +323,8 @@
       "email": "fokusnusantara@gmail.com",
       "socialHandle": "fokusnusantara",
       "colors": {
-        "primary": "#065F46",
-        "dark": "#022C22",
+        "primary": "#0EA5E9",
+        "dark": "#075985",
         "secondary": "#6B3D51"
       }
     },

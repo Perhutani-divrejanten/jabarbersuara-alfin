@@ -1,45 +1,54 @@
-/**
+﻿/**
  * Load Breaking News dari articles.json untuk index.html
- * Script ini mengganti breaking news carousel dengan berita terbaru
+ * Menampilkan breaking news dalam carousel dengan navigation buttons
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    const breakingNews = document.querySelector('.tranding-carousel');
-    if (!breakingNews) return;
+    const breakingNewsCarousel = document.getElementById('breakingNewsCarousel');
+    if (!breakingNewsCarousel) return;
 
-    // Fetch articles.json dan update breaking news
     fetch('articles.json')
         .then(response => {
             if (!response.ok) throw new Error('Failed to load articles.json');
             return response.json();
         })
         .then(articles => {
-            // Clear existing items
-            breakingNews.innerHTML = '';
+            breakingNewsCarousel.innerHTML = '';
+            const breakingNewsArticles = articles.slice(0, 8);
 
-            // Ambil 2 berita terbaru untuk breaking news (membatasi judul agar tetap besar dan mudah dibaca)
-            const latestArticles = articles.slice(0, 2);
-
-            // Render breaking news items
-            latestArticles.forEach(article => {
+            breakingNewsArticles.forEach(article => {
                 const item = document.createElement('div');
-                item.className = 'text-truncate';
+                item.className = 'breaking-news-item';
 
                 const link = document.createElement('a');
-                link.className = 'text-white text-uppercase font-weight-semi-bold';
                 link.href = article.url || '#';
-                link.textContent = article.title || '';
+                link.textContent = article.title || 'Breaking News';
+                link.title = article.title || 'Breaking News';
 
                 item.appendChild(link);
-                breakingNews.appendChild(item);
+                breakingNewsCarousel.appendChild(item);
             });
 
-            // if carousel already initialized, simply refresh to pick up new items
-            if (typeof $.fn.owlCarousel === 'function' && $(breakingNews).hasClass('owl-loaded')) {
-                $(breakingNews).trigger('refresh.owl.carousel');
+            if (typeof $.fn.owlCarousel === 'function') {
+                $(breakingNewsCarousel).owlCarousel({
+                    items: 1,
+                    loop: true,
+                    margin: 0,
+                    autoplay: true,
+                    autoplayTimeout: 5000,
+                    autoplayHoverPause: true,
+                    dots: true,
+                    nav: true,
+                    navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+                    responsive: {
+                        0: { items: 1 },
+                        600: { items: 1 },
+                        1000: { items: 1 }
+                    }
+                });
             }
         })
         .catch(err => {
-            console.error('❌ Error loading articles.json for breaking news:', err);
+            console.error('❌ Error loading breaking news:', err);
         });
 });

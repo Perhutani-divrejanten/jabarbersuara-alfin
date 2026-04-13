@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Authentication - Indonesia Daily</title>
+    <title>Test Authentication - Jabar Bersuara</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -107,35 +107,35 @@
     </style>
 </head>
 <body>
-    <h1>ðŸ”§ Authentication Debugger</h1>
+    <h1>ðŸ"§ Authentication Debugger</h1>
     
     <div class="card">
-        <h2>ðŸ“Š Current Status</h2>
+        <h2>ðŸ"Š Current Status</h2>
         <div id="currentStatus"></div>
     </div>
 
     <div class="card">
-        <h2>ðŸ’¾ LocalStorage Data</h2>
+        <h2>ðŸ'¾ LocalStorage Data</h2>
         <div id="storageData"></div>
     </div>
 
     <div class="card">
-        <h2>ðŸ‘¥ Registered Users</h2>
+        <h2>ðŸ'¥ Registered Users</h2>
         <div id="usersList"></div>
     </div>
 
     <div class="card">
-        <h2>ðŸ”¨ Actions</h2>
+        <h2>ðŸ"¨ Actions</h2>
         <button class="btn btn-success" onclick="createTestUser()">âž• Create Test User</button>
-        <button class="btn" onclick="refreshData()">ðŸ”„ Refresh</button>
-        <button class="btn btn-danger" onclick="clearAll()">ðŸ—‘ï¸ Clear All Data</button>
-        <a href="index.html" class="btn">ðŸ  Go to Index</a>
-        <a href="login.html" class="btn">ðŸ” Go to Login</a>
-        <a href="register.html" class="btn">ðŸ“ Go to Register</a>
+        <button class="btn" onclick="refreshData()">ðŸ"„ Refresh</button>
+        <button class="btn btn-danger" onclick="clearAll()">ðŸ-'ï¸ Clear All Data</button>
+        <a href="index.html" class="btn">ðŸ  Go to Index</a>
+        <a href="login.html" class="btn">ðŸ" Go to Login</a>
+        <a href="register.html" class="btn">ðŸ" Go to Register</a>
     </div>
 
     <div class="card">
-        <h2>ðŸ“ Console Logs</h2>
+        <h2>ðŸ" Console Logs</h2>
         <pre id="consoleLogs"></pre>
     </div>
 
@@ -158,7 +158,7 @@
             checkCurrentStatus();
             displayStorageData();
             displayUsersList();
-            console.log('ðŸ”„ Data refreshed');
+            console.log('ðŸ"„ Data refreshed');
         }
 
         function checkCurrentStatus() {
@@ -166,7 +166,7 @@
             const session = localStorage.getItem('userSession');
             
             if (!session) {
-                statusDiv.innerHTML = '<div class="status warning">âš ï¸ Not Logged In</div>';
+                statusDiv.innerHTML = '<div class="status warning">âš ï¸ Not Logged In</div>';
                 return;
             }
 
@@ -177,7 +177,7 @@
                     statusDiv.innerHTML = `
                         <div class="status success">
                             âœ… Logged In as: <strong>${userData.name}</strong><br>
-                            ðŸ“§ Email: ${userData.email}<br>
+                            ðŸ"§ Email: ${userData.email}<br>
                             ðŸ• Login Time: ${new Date(userData.loginTime).toLocaleString()}
                         </div>
                     `;
@@ -199,8 +199,8 @@
             keys.forEach(key => {
                 const value = localStorage.getItem(key);
                 const status = value ? 
-                    '<span class="badge badge-success">âœ“ EXISTS</span>' : 
-                    '<span class="badge badge-danger">âœ— NOT FOUND</span>';
+                    '<span class="badge badge-success">âœ" EXISTS</span>' : 
+                    '<span class="badge badge-danger">âœ- NOT FOUND</span>';
                 
                 let displayValue = 'N/A';
                 if (value) {
@@ -232,7 +232,7 @@
                 const users = JSON.parse(usersString);
                 
                 if (users.length === 0) {
-                    listDiv.innerHTML = '<div class="status info">â„¹ï¸ No registered users</div>';
+                    listDiv.innerHTML = '<div class="status info">[INFO] No registered users</div>';
                     return;
                 }
 
@@ -252,10 +252,10 @@
                 });
                 
                 html += '</table>';
-                html += `<div class="status success">âœ… Total: ${users.length} user(s)</div>`;
+                html += `<div class="status success">[OK] Total: ${users.length} user(s)</div>`;
                 listDiv.innerHTML = html;
             } catch (error) {
-                listDiv.innerHTML = `<div class="status error">âŒ Error parsing users: ${error.message}</div>`;
+                listDiv.innerHTML = `<div class="status error">[ERROR] Error parsing users: ${error.message}</div>`;
             }
         }
 
@@ -264,7 +264,7 @@
             
             const testUser = {
                 fullname: 'Test User',
-                email: 'test@example.com',
+                email: 'jabarbersuara@gmail.com',
                 phone: '08123456789',
                 password: 'test123',
                 registeredAt: new Date().toISOString()
@@ -272,26 +272,26 @@
             
             // Check if already exists
             if (users.find(u => u.email === testUser.email)) {
-                alert('âŒ Test user already exists!\nEmail: test@example.com\nPassword: test123');
+                alert('[ERROR] Test user already exists!\nEmail: jabarbersuara@gmail.com\nPassword: test123');
                 return;
             }
             
             users.push(testUser);
             localStorage.setItem('users', JSON.stringify(users));
             
-            alert('âœ… Test user created!\nEmail: test@example.com\nPassword: test123');
-            console.log('âœ… Test user created');
+            alert('[OK] Test user created!\nEmail: jabarbersuara@gmail.com\nPassword: test123');
+            console.log('[OK] Test user created');
             refreshData();
         }
 
         function clearAll() {
-            if (!confirm('âš ï¸ This will delete ALL data!\n\nContinue?')) {
+            if (!confirm('[WARNING] This will delete ALL data!\n\nContinue?')) {
                 return;
             }
             
             localStorage.clear();
-            alert('âœ… All data cleared!');
-            console.log('ðŸ—‘ï¸ All data cleared');
+            alert('[OK] All data cleared!');
+            console.log('[OK] All data cleared');
             refreshData();
         }
 

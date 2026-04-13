@@ -1,46 +1,58 @@
-name: Build and Deploy to cPanel
+name: Deploy ke cPanel
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
-  repository_dispatch:
+    branches: [main]
+  schedule:
+    - cron: '0 */6 * * *'   # otomatis update setiap 6 jam
 
 jobs:
-  ftp-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0          # full history not needed but safe
 
-      - name: Setup Node (optional)
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install dependencies (if any)
         run: |
           if [ -f package.json ]; then npm ci; fi
 
       - name: Run static generator
         run: node tools/generate.js
-        env:
-          SHEETS_URL: ${{ secrets.SHEETS_URL }}
 
-      - name: Debug workspace
-        run: |
-          echo "pwd=$(pwd)"
-          ls -al
-
-      - name: Deploy via SFTP to cPanel
-        uses: appleboy/scp-action@master
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.SSH_HOST }}
-          port: ${{ secrets.SSH_PORT }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "article,css,js,img,lib,scripts,index.html,articles.json,contact.html,login.html,register.html,search.html,news.html"
-          target: /home/wartajan/public_html/
-          rm: true
+          server: 195.88.211.130
+          username: deploy@wartajanten.net
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./  # atau ./ jika ingin upload semua
+          server-dir: /jabarbersuara/
+          timeout: 60000
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.github/**
+            *.bak*
+            articles_temp.json
+            .DS_Store
+            .env
+            .env.local
+            *.log
+            TROUBLESHOOTING.md
+            AUDIT_REPORT.md
+            PERBAIKAN_STATUS.md
+            final-verification.ps1
+            fix-encoding.ps1
+            rebrand-to-warta-janten.ps1
+            replace-logo.ps1

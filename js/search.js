@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const keywords = q.toLowerCase().split(/\s+/).filter(Boolean);
+        const validCategories = ['Lingkungan', 'Ekonomi', 'Keamanan', 'Pendidikan', 'Pangan', 'Hukum', 'Olahraga', 'Kesehatan', 'Sosial'];
+        const isCategoryQuery = keywords.length === 1 && validCategories.some(cat => cat.toLowerCase() === keywords[0]);
+        
         let matched = 0;
         items.forEach(item => {
             const titleEl = item.querySelector('h5');
@@ -42,8 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const badge = badgeEl ? badgeEl.textContent : '';
             const href = linkEl ? (linkEl.getAttribute('href') || '') : '';
 
-            const hay = (title + ' ' + excerpt + ' ' + badge + ' ' + href).toLowerCase();
-            const isMatch = keywords.every(k => hay.indexOf(k) !== -1);
+            let isMatch = false;
+            if (isCategoryQuery) {
+                // Match only by category badge
+                isMatch = badge.toLowerCase() === keywords[0];
+            } else {
+                const hay = (title + ' ' + excerpt + ' ' + badge + ' ' + href).toLowerCase();
+                isMatch = keywords.every(k => hay.indexOf(k) !== -1);
+            }
 
             if (isMatch) {
                 item.style.display = 'block';
@@ -159,9 +168,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const resp = await fetch('articles.json');
             if (!resp.ok) throw new Error('no index');
             const data = await resp.json();
+            
+            // Define valid categories
+            const validCategories = ['Lingkungan', 'Ekonomi', 'Keamanan', 'Pendidikan', 'Pangan', 'Hukum', 'Olahraga', 'Kesehatan', 'Sosial'];
+            
+            // Check if the query is exactly a valid category
+            const isCategoryQuery = keywords.length === 1 && validCategories.some(cat => cat.toLowerCase() === keywords[0]);
+            
             const matches = data.filter(a => {
-                const hay = (a.title + ' ' + (a.excerpt||'') + ' ' + (a.category||'') + ' ' + (a.url||'') + ' ' + (a.date||'')).toLowerCase();
-                return keywords.every(k => hay.indexOf(k) !== -1);
+                if (isCategoryQuery) {
+                    // If querying a category, match only by category
+                    return (a.category || '').toLowerCase() === keywords[0];
+                } else {
+                    // Otherwise, search in all fields
+                    const hay = (a.title + ' ' + (a.excerpt||'') + ' ' + (a.category||'') + ' ' + (a.url||'') + ' ' + (a.date||'')).toLowerCase();
+                    return keywords.every(k => hay.indexOf(k) !== -1);
+                }
             });
             renderMatches(matches);
             showMessage(matches.length, q);

@@ -1,5 +1,5 @@
 # Netlify Configuration
-# Deploy configuration for Indonesia Daily
+# Deploy configuration for Jabar Bersuara
 
 [build]
   # Command untuk build sebelum deploy

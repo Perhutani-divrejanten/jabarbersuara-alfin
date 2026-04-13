@@ -70,8 +70,8 @@ node generate.js
 - `slug`: ID unik artikel (nama file), lowercase, gunakan `-` bukan spasi. **Bisa kosong** ← akan auto-generate dari `title`.
 - `title`: Judul artikel **(wajib)**.
 - `date`: Format YYYY-MM-DD **(wajib)**. Atau format lokal: "02-Feb-2026", "Feb 2, 2026", dll.
-- `category`: Kategori artikel (Lingkungan, Teknologi, dll) — akan muncul di `articles.json` & filter search.
-- `badge`: Label badge (Utama, Trending, Breaking, dll) — akan ditampilkan di artikel.
+- `category`: Kategori artikel (Lingkungan, Teknologi, dll) - akan muncul di `articles.json` & filter search.
+- `badge`: Label badge (Utama, Trending, Breaking, dll) - akan ditampilkan di artikel.
 - `image`: Nama file gambar (mis. `beritaf1.jpg`) atau URL publik (mis. `https://...`).
   - **Jika nama file:** taruh file di folder `img/` → generator otomatis membuat path `img/beritaf1.jpg`.
   - **Jika URL:** pastikan bisa diakses publik.
@@ -145,9 +145,9 @@ const SHEETS_URL = 'https://script.google.com/macros/s/NEW_ID/exec';
 ### Automasi / Scheduling (Optional)
 
 Jalankan generator secara otomatis dengan:
-1. **Windows Task Scheduler** — jalankan `node generate.js` setiap jam
-2. **GitHub Actions** — trigger kala ada perubahan di repo
-3. **Cron (Linux/Mac)** — `0 * * * * cd /path/to/tools && npm start`
+1. **Windows Task Scheduler** - jalankan `node generate.js` setiap jam
+2. **GitHub Actions** - trigger kala ada perubahan di repo
+3. **Cron (Linux/Mac)** - `0 * * * * cd /path/to/tools && npm start`
 
 ### Update Format Tanggal
 
@@ -165,7 +165,7 @@ Jika format tanggal dari Sheets berbeda, modifikasi di `generate.js` baris yang 
 - ✅ Lihat di terminal apakah ada error saat generate.
 
 ### ❌ Artikel tidak muncul di news.html atau search.html
-- ✅ Cek `articles.json` — pastikan entry baru ada.
+- ✅ Cek `articles.json` - pastikan entry baru ada.
 - ✅ Refresh browser (Ctrl+F5) untuk clear cache.
 - ✅ Buka web browser console (F12) untuk lihat JavaScript error.
 - ✅ Pastikan `news.html` & `search.html` punya JavaScript untuk load `articles.json`.

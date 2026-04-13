@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Perhutani KPH Tasikmalaya Hadiri Penandatanganan MoU Bidang Pertanahan Antara Perhutani Divre Janten dan Kanwil BPN Jawa Barat - Indonesia Daily</title>
+    <title>Perhutani KPH Tasikmalaya Hadiri Penandatanganan MoU Bidang Pertanahan Antara Perhutani Divre Janten dan Kanwil BPN Jawa Barat - Jabar Bersuara</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -35,12 +35,17 @@
                         <li class="nav-item border-right border-secondary">
                             <a class="nav-link text-body small" href="#" id="currentDate"></a>
                         </li>
-                        
-                        <li class="nav-item border-right border-secondary">
-                            <a class="nav-link text-body small" href="../contact.html">Contact</a>
+                        <li class="nav-item border-right border-secondary" id="registerItem">
+                            <a class="nav-link text-body small" href="../register.html">Register</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="loginItem">
                             <a class="nav-link text-body small" href="../login.html">Login</a>
+                        </li>
+                        <li class="nav-item border-right border-secondary d-none" id="userItem">
+                            <span class="nav-link text-body small" id="username"></span>
+                        </li>
+                        <li class="nav-item d-none" id="logoutItem">
+                            <a class="nav-link text-body small" href="#" onclick="logout()">Logout</a>
                         </li>
                     </ul>
                 </nav>
@@ -49,40 +54,41 @@
                 <nav class="navbar navbar-expand-sm bg-dark p-0">
                     <ul class="navbar-nav ml-auto mr-n2">
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://twitter.com/indonesiadaily" target="_blank"><small class="fab fa-twitter"></small></a>
+                            <a class="nav-link text-body" href="https://twitter.com/jabarbersuara" target="_blank"><small class="fab fa-twitter"></small></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://facebook.com/indonesiadaily" target="_blank"><small class="fab fa-facebook-f"></small></a>
+                            <a class="nav-link text-body" href="https://facebook.com/jabarbersuara" target="_blank"><small class="fab fa-facebook-f"></small></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://linkedin.com/company/indonesiadaily" target="_blank"><small class="fab fa-linkedin-in"></small></a>
+                            <a class="nav-link text-body" href="https://linkedin.com/company/jabarbersuara" target="_blank"><small class="fab fa-linkedin-in"></small></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://instagram.com/indonesiadaily" target="_blank"><small class="fab fa-instagram"></small></a>
+                            <a class="nav-link text-body" href="https://instagram.com/jabarbersuara" target="_blank"><small class="fab fa-instagram"></small></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-body" href="https://mail.google.com/mail/u/0/" target="_blank"><small class="fa fa-envelope"></small></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://youtube.com/@indonesiadaily" target="_blank"><small class="fab fa-youtube"></small></a>
+                            <a class="nav-link text-body" href="https://youtube.com/@jabarbersuara" target="_blank"><small class="fab fa-youtube"></small></a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
+                
             </div>
         </div>
     </div>
     <!-- Topbar End -->
 
 
-   <!-- Navbar Start -->
+    <!-- Navbar Start -->
 <div class="container-fluid bg-white px-4 shadow-sm">
     <nav class="navbar navbar-expand-lg navbar-light">
 
         <!-- LOGO KIRI (MEPET) -->
-        <a href="index.html" class="navbar-brand mr-5">
-            <img src="../img/logo.png" alt="IndonesiaDaily" style="height: 45px;">
+        <a href="../index.html" class="navbar-brand mr-5">
+            <span class="brand-logo"><span class="brand-logo-main">JABAR</span><span class="brand-logo-sub">BERSUARA</span></span>
         </a>
 
         <!-- TOGGLER -->
@@ -125,8 +131,8 @@
                         <div class="bg-primary text-dark text-center font-weight-medium py-2" style="width: 170px;">Breaking News</div>
                         <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3"
                             style="width: calc(100% - 200px); padding-right: 90px;">
-                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="article/perhutani-majalengka.html">Perhutani KPH Majalengka Perkuat Sinergi dengan Kodim 0617 Majalengka</a></div>
-                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="article/longsor-bandung.html">Warga Korban Longsor Cisarua Sempat Lihat 2 Orang Diduga Anggota TNI</a></div>
+                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="/article/perhutani-majalengka.html">Perhutani KPH Majalengka Perkuat Sinergi dengan Kodim 0617 Majalengka</a></div>
+                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="/article/longsor-bandung.html">Warga Korban Longsor Cisarua Sempat Lihat 2 Orang Diduga Anggota TNI</a></div>
                         </div>
                     </div>
                 </div>
@@ -143,19 +149,27 @@
                 <div class="col-lg-8">
                     <!-- News Detail Start -->
                     <div class="position-relative mb-3">
-                        <img class="img-fluid w-100" src="https://res.cloudinary.com/dpfqrfkgz/image/upload/v1770965455/beritaf7_cnnt4a.jpg" style="object-fit: cover;">
+                        <img class="img-fluid w-100" src="https://res.cloudinary.com/dpfqrfkgz/image/upload/v1770965455/beritaf7_cnnt4a.jpg" onerror="this.src='../img/news-800x500-1.jpg'" style="object-fit: cover;">
                         <div class="bg-white border border-top-0 p-4">
                             <div class="mb-3">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Ekonomi</a>
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Ekonomi</a>
                                 <a class="text-body" href="">2026 - 02 -02</a>
                             </div>
                             <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">Perhutani KPH Tasikmalaya Hadiri Penandatanganan MoU Bidang Pertanahan Antara Perhutani Divre Janten dan Kanwil BPN Jawa Barat</h1>
+                            <p>Perhutani Kesatuan Pemangkuan Hutan (KPH) Tasikmalaya hadir dalam kegiatan penandatanganan Nota Kesepahaman...</p>
                             
-                            <p>TASIKMALAYA, PERHUTANI (02/02/2026) | Perhutani Kesatuan Pemangkuan Hutan (KPH) Tasikmalaya hadir dalam kegiatan penandatanganan Nota Kesepahaman (Memorandum of Understanding/MoU) Bidang Pertanahan antara Perum Perhutani Divisi Regional Jawa Barat dan Banten (Divre Janten) dengan Kantor Wilayah Badan Pertanahan Nasional (BPN) Provinsi Jawa Barat. Kegiatan tersebut dilaksanakan pada Rabu, (29/01), bertempat di Kantor Wilayah BPN Provinsi Jawa Barat, Tasikmalaya.</p><p>Penandatanganan MoU ini bertujuan untuk memperkuat sinergi strategis di bidang pertahanan guna mendukung kepastian hukum atas aset tanah negara serta menunjang kelancaran operasional hutan di wilayah kerja.</p><p>Hadir dalam kegiatan tersebut Kepala Perum Perhutani Divisi Regional Jawa Barat dan Banten beserta jajaran, Kepala Kantor Wilayah BPN Provinsi Jawa Barat, Administratur/Kepala Kesatuan Pemangkuan Hutan (KKPH) Tasikmalaya beserta jajaran manajemen dan pejabat terkait dari kedua instansi.</p><p>Penandatanganan MoU Bidang Pertanahan ini dilakukan oleh Kepala Perum Perhutani Divisi Regional Jawa Barat dan Banten, Yudha Suswardhanto, dan Kepala Kantor Wilayah BPN Provinsi Jawa Barat, Yuniar Hikmat Ginanjar, sebagai bentuk komitmen bersama dalam memperkuat sinergi strategis di bidang pertanahan.</p><p>Dalam sambutannya, Yudha Suswardhanto menyampaikan bahwa kerja sama ini merupakan tindak lanjut dari Nota Kesepahaman antara Perum Perhutani dan Kementerian Agraria dan Tata Ruang/Badan Pertanahan Nasional di tingkat pusat, yang kemudian diimplementasikan di tingkat daerah.</p><p>Menurutnya, kerja sama ini bertujuan untuk memperkuat kepastian hukum atas aset tanah negara non-kawasan hutan yang digunakan untuk mendukung kegiatan operasional Perhutani, sekaligus menjaga kelestarian kawasan hutan dan keberlanjutan lingkungan.</p><p>Sementara itu, Yuniar Hikmat Ginanjar menegaskan bahwa sinergi antara Kanwil BPN Provinsi Jawa Barat dan Perum Perhutani merupakan langkah penting dalam mewujudkan tertib administrasi pertanahan serta meningkatkan kualitas pelayanan pertanahan kepada masyarakat.</p><p>Ia menambahkan bahwa kolaborasi ini diharapkan mampu memperkuat integrasi data pertanahan, meminimalisasi potensi konflik, serta meningkatkan efektivitas pengelolaan aset negara di wilayah Provinsi Jawa Barat.</p><p>Kehadiran Perhutani KPH Tasikmalaya dalam kegiatan ini menjadi wujud dukungan aktif unit kerja di tingkat tapak terhadap kebijakan strategis Perhutani Divisi Regional Jawa Barat–Banten di bidang pertanahan.</p><p>Dengan adanya MoU ini, koordinasi teknis antara jajaran Perhutani di wilayah, termasuk KPH Tasikmalaya, dengan Kantor Pertanahan setempat diharapkan dapat berjalan lebih efektif, terarah, dan berkesinambungan.</p><p>Kerja sama ini diharapkan memberikan manfaat nyata bagi institusi dan masyarakat melalui pengelolaan hutan yang lestari, tertib administrasi pertanahan, serta penguatan kepastian hukum atas aset negara.</p>
+                            <div class="article-content">
+                                <p>TASIKMALAYA, PERHUTANI (02/02/2026) | Perhutani Kesatuan Pemangkuan Hutan (KPH) Tasikmalaya hadir dalam kegiatan penandatanganan Nota Kesepahaman (Memorandum of Understanding/MoU) Bidang Pertanahan antara Perum Perhutani Divisi Regional Jawa Barat dan Banten (Divre Janten) dengan Kantor Wilayah Badan Pertanahan Nasional (BPN) Provinsi Jawa Barat. Kegiatan tersebut dilaksanakan pada Rabu, (29/01), bertempat di Kantor Wilayah BPN Provinsi Jawa Barat, Tasikmalaya.</p><p>Penandatanganan MoU ini bertujuan untuk memperkuat sinergi strategis di bidang pertahanan guna mendukung kepastian hukum atas aset tanah negara serta menunjang kelancaran operasional hutan di wilayah kerja.</p><p>Hadir dalam kegiatan tersebut Kepala Perum Perhutani Divisi Regional Jawa Barat dan Banten beserta jajaran, Kepala Kantor Wilayah BPN Provinsi Jawa Barat, Administratur/Kepala Kesatuan Pemangkuan Hutan (KKPH) Tasikmalaya beserta jajaran manajemen dan pejabat terkait dari kedua instansi.</p><p>Penandatanganan MoU Bidang Pertanahan ini dilakukan oleh Kepala Perum Perhutani Divisi Regional Jawa Barat dan Banten, Yudha Suswardhanto, dan Kepala Kantor Wilayah BPN Provinsi Jawa Barat, Yuniar Hikmat Ginanjar, sebagai bentuk komitmen bersama dalam memperkuat sinergi strategis di bidang pertanahan.</p><p>Dalam sambutannya, Yudha Suswardhanto menyampaikan bahwa kerja sama ini merupakan tindak lanjut dari Nota Kesepahaman antara Perum Perhutani dan Kementerian Agraria dan Tata Ruang/Badan Pertanahan Nasional di tingkat pusat, yang kemudian diimplementasikan di tingkat daerah.</p><p>Menurutnya, kerja sama ini bertujuan untuk memperkuat kepastian hukum atas aset tanah negara non-kawasan hutan yang digunakan untuk mendukung kegiatan operasional Perhutani, sekaligus menjaga kelestarian kawasan hutan dan keberlanjutan lingkungan.</p><p>Sementara itu, Yuniar Hikmat Ginanjar menegaskan bahwa sinergi antara Kanwil BPN Provinsi Jawa Barat dan Perum Perhutani merupakan langkah penting dalam mewujudkan tertib administrasi pertanahan serta meningkatkan kualitas pelayanan pertanahan kepada masyarakat.</p><p>Ia menambahkan bahwa kolaborasi ini diharapkan mampu memperkuat integrasi data pertanahan, meminimalisasi potensi konflik, serta meningkatkan efektivitas pengelolaan aset negara di wilayah Provinsi Jawa Barat.</p><p>Kehadiran Perhutani KPH Tasikmalaya dalam kegiatan ini menjadi wujud dukungan aktif unit kerja di tingkat tapak terhadap kebijakan strategis Perhutani Divisi Regional Jawa Barat–Banten di bidang pertanahan.</p><p>Dengan adanya MoU ini, koordinasi teknis antara jajaran Perhutani di wilayah, termasuk KPH Tasikmalaya, dengan Kantor Pertanahan setempat diharapkan dapat berjalan lebih efektif, terarah, dan berkesinambungan.</p><p>Kerja sama ini diharapkan memberikan manfaat nyata bagi institusi dan masyarakat melalui pengelolaan hutan yang lestari, tertib administrasi pertanahan, serta penguatan kepastian hukum atas aset negara.</p>
+                            </div>
                         </div>
                         <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle mr-2" src="../img/alfin.jpg" width="25" height="25" alt=""><span>Reporter: Alfin Syawalan</span>
+                                <img class="rounded-circle mr-2" src="../img/alfin.jpg" width="25" height="25" alt=""><span>Reporter: </span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -164,30 +178,24 @@
                     <!-- Comment List Start -->
                     <div class="mb-3">
                         <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">4 Comments</h4>
+                            <h4 class="m-0 text-uppercase font-weight-bold">3 Comments</h4>
                         </div>
                         <div class="bg-white border border-top-0 p-4">
                             <div class="media mb-4">
                                 <img src="../img/cewe5.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;"><div class="media-body"><h6><a class="text-secondary font-weight-bold" href="">Ibu Sari</a> <small><i>22 Oct 2025</i></small></h6>
-                                    <p>Berita yang sangat informatif dan penting untuk diketahui. Terima kasih sudah membagikan informasi yang bermanfaat!</p>
+                                    <p>Jaga terus hutan indonesia!</p>
                                     <button class="btn btn-sm btn-outline-secondary">Reply</button>
                                 </div>
                             </div>
                             <div class="media mb-4">
                                 <img src="../img/cowok2.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;"><div class="media-body"><h6><a class="text-secondary font-weight-bold" href="">Dedi Hermawan</a> <small><i>22 Oct 2025</i></small></h6>
-                                    <p>Ini berita yang sangat menarik! Semoga terus ada update-update terbaru seperti ini di Indonesia Daily.</p>
+                                    <p>Sukses terus perhutani!</p>
                                     <button class="btn btn-sm btn-outline-secondary">Reply</button>
                                 </div>
                             </div>
                             <div class="media mb-4">
-                                <img src="../img/cewe4.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;"><div class="media-body"><h6><a class="text-secondary font-weight-bold" href="">Rina Wijaya</a> <small><i>22 Oct 2025</i></small></h6>
-                                    <p>Terima kasih atas berita yang akurat dan terpercaya. Keep up the good work!</p>
-                                    <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <img src="../img/cowok1.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;"><div class="media-body"><h6><a class="text-secondary font-weight-bold" href="">Ahmad Pratama</a> <small><i>22 Oct 2025</i></small></h6>
-                                    <p>Great article! Sangat membantu saya memahami topik ini dengan lebih baik. Lanjutkan memberikan konten berkualitas!</p>
+                                <img src="../img/cewe4.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;"><div class="media-body"><h6><a class="text-secondary font-weight-bold" href="">Guru Lina</a> <small><i>22 Oct 2025</i></small></h6>
+                                    <p>Mantap Lanjutkan.</p>
                                     <button class="btn btn-sm btn-outline-secondary">Reply</button>
                                 </div>
                             </div>
@@ -203,42 +211,29 @@
                             <h4 class="m-0 text-uppercase font-weight-bold">Follow Us</h4>
                         </div>
                         <div class="bg-white border border-top-0 p-3">
-                            <a href="https://facebook.com/indonesiadaily" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
-                                <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                            <a href="https://facebook.com/jabarbersuara" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;"><i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
                                 <span class="font-weight-medium">12,345 Fans</span>
                             </a>
-                            <a href="https://twitter.com/indonesiadaily" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
-                                <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                            <a href="https://twitter.com/jabarbersuara" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;"><i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
                                 <span class="font-weight-medium">12,345 Followers</span>
                             </a>
-                            <a href="https://linkedin.com/company/indonesiadaily" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #0185AE;">
-                                <i class="fab fa-linkedin-in text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                            <a href="https://linkedin.com/company/jabarbersuara" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #0185AE;"><i class="fab fa-linkedin-in text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
                                 <span class="font-weight-medium">12,345 Connects</span>
                             </a>
-                            <a href="https://instagram.com/indonesiadaily" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
-                                <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                            <a href="https://instagram.com/jabarbersuara" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;"><i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
                                 <span class="font-weight-medium">12,345 Followers</span>
                             </a>
+                            
                         </div>
                     </div>
+                    <!-- Ads End -->
+
                     <!-- Popular News Start -->
                     <div class="mb-3">
                         <div class="section-title mb-0">
                             <h4 class="m-0 text-uppercase font-weight-bold">Trending News</h4>
                         </div>
                         <div class="bg-white border border-top-0 p-3">
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <a href="berita1.html">
-                                <img class="img-fluid" style="width: 110px; height: 110px; object-fit: cover;" src="../img/01.png" alt="">
-                                </a>
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Pendidikan</a>
-                                        <a class="text-body" href=""><small>Oct 22, 2025</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="berita1.html">Mahasiswa UPI Purwakarta Kenalkan Computational...</a>
-                                </div>
-                            </div>
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
                                 <a href="perhutani-majalengka.html">
                                 <img class="img-fluid" style="width: 110px; height: 110px; object-fit: cover;" src="../img/news-800x500-1.jpg" alt="">
@@ -263,6 +258,18 @@
                                     <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="bojan-hodak.html">Pertimbangan Bojan Ogah Buru-buru Mainkan...</a>
                                 </div>
                             </div>
+                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
+                                <a href="masih-ingat-resbob.html">
+                                <img class="img-fluid" style="width: 110px; height: 110px; object-fit: cover;" src="../img/news-800x500-3.jpg" alt="">
+                                </a>
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Hukum</a>
+                                        <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="masih-ingat-resbob.html">Masih Ingat Resbob? Tersangka Kasus...</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Popular News End -->
@@ -274,12 +281,13 @@
                         </div>
                         <div class="bg-white border border-top-0 p-3">
                             <div class="d-flex flex-wrap m-n1">
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Perhutani</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Berita</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">News</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Articles</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Indonesia</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Daily</a>
+                                <a href="" class="btn btn-sm btn-outline-secondary m-1">UPI</a>
+                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Purwakarta</a>
+                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Pendidikan</a>
+                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Teknologi</a>
+                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Coding</a>
+                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Arduino</a>
+                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Scratch</a>
                             </div>
                         </div>
                     </div>
@@ -295,17 +303,17 @@
 <div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5 mt-5">
     <div class="row py-4">
         <div class="col-lg-3 col-md-6 mb-5">
-            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Indonesia Daily</h5>
+            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Jabar Bersuara</h5>
             <p class="font-weight-medium text-white"><i class="fa fa-map-marker-alt mr-2"></i>Jl. Merdeka No. 123, Jakarta Pusat, Indonesia 10110</p>
             <p class="font-weight-medium text-white"><i class="fa fa-phone-alt mr-2"></i>+62 21 1234 5678</p>
-            <p class="font-weight-medium text-white"><i class="fa fa-envelope mr-2"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=IndonesiaDaily33@gmail.com" target="_blank" class="text-white">IndonesiaDaily33@gmail.com</a></p>
+            <p class="font-weight-medium text-white"><i class="fa fa-envelope mr-2"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=jabarbersuara@gmail.com" target="_blank" class="text-white">jabarbersuara@gmail.com</a></p>
             <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Follow Us</h6>
             <div class="d-flex justify-content-start">
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://twitter.com/indonesiadaily" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://facebook.com/indonesiadaily" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://linkedin.com/company/indonesiadaily" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://instagram.com/indonesiadaily" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square" href="https://youtube.com/@indonesiadaily" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://twitter.com/jabarbersuara" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://facebook.com/jabarbersuara" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://linkedin.com/company/jabarbersuara" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://instagram.com/jabarbersuara" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square" href="https://youtube.com/@jabarbersuara" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
@@ -344,14 +352,12 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Kategori</h5>
-            <div  id="footerCategories" class="d-flex flex-wrap m-n1">
-                <!-- populated by js/main.js -->
-            </div>
+            <div id="footerCategories" class="d-flex flex-wrap m-n1"><!-- populated by js/main.js --></div>
         </div>
     </div>
 </div>
 <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
-    <p class="m-0 text-center text-white">&copy; 2026 <a href="../index.html" class="text-primary">Indonesia Daily</a>. Portal Berita Terpercaya Indonesia. All Rights Reserved.</p>
+    <p class="m-0 text-center text-white">&copy; 2026 <a href="../index.html" class="text-primary">Jabar Bersuara</a>. Portal Berita Terpercaya Indonesia. All Rights Reserved.</p>
 </div>
 <!-- Footer End -->
 
@@ -368,6 +374,9 @@
 
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
+    <!-- Authentication Script -->
+    <script src="../js/auth.js"></script>
+    
     <script>
 const dateElement = document.getElementById("currentDate");
 const today = new Date();
@@ -383,4 +392,6 @@ dateElement.textContent = formattedDate;
 </body>
 
 </html>
+
+
 

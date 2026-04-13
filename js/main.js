@@ -167,13 +167,14 @@
                     'environment':'Lingkungan','lingkungan':'Lingkungan',
                     'pangan':'Pangan','ketahanan pangan':'Pangan','food':'Pangan','foods':'Pangan','agriculture':'Pangan',
                     'hukum':'Hukum','law':'Hukum','crime':'Hukum',
-                    'keamanan':'Keamanan','security':'Keamanan',
-                    'economy':'Ekonomi','ekonomi':'Ekonomi','business':'Ekonomi',
-                    'education':'Pendidikan','pendidikan':'Pendidikan',
+                    'keamanan':'Keamanan','security':'Keamanan','safety':'Keamanan',
+                    'economy':'Ekonomi','ekonomi':'Ekonomi','business':'Ekonomi','bisnis':'Ekonomi',
+                    'education':'Pendidikan','pendidikan':'Pendidikan','edukasi':'Pendidikan',
                     'sports':'Olahraga','sport':'Olahraga','olahraga':'Olahraga',
-                    'technology':'Teknologi','teknologi':'Teknologi',
+                    'technology':'Teknologi','teknologi':'Teknologi','tech':'Teknologi','digital':'Teknologi','digitalisasi':'Teknologi',
                     'health':'Kesehatan','kesehatan':'Kesehatan',
-                    'culture':'Budaya','budaya':'Budaya'
+                    'culture':'Budaya','budaya':'Budaya',
+                    'sosial':'Sosial','social':'Sosial'
                 };
                 if(map[s]) return map[s];
                 for(const k of Object.keys(map)) if(s.indexOf(k)!==-1) return map[k];

@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Indonesia Daily - Berita Terkini Indonesia</title>
+    <title>Jabar Bersuara - Berita Terkini Indonesia</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="berita, news, indonesia, perhutani, lingkungan" name="keywords">
-    <meta content="Indonesia Daily - Portal berita terkini Indonesia dengan liputan lengkap tentang lingkungan, pendidikan, dan pembangunan berkelanjutan" name="description">
+    <meta content="Jabar Bersuara - Portal berita terkini Indonesia dengan liputan lengkap tentang lingkungan, pendidikan, dan pembangunan berkelanjutan" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">    
@@ -23,6 +23,71 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Latest News Custom Styles -->
+    <style>
+        .latest-news-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .latest-news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .latest-news-card > a > img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .latest-news-card .article-title {
+            line-height: 1.4;
+            font-size: 1rem;
+            min-height: auto;
+            max-height: none;
+            overflow: visible;
+            text-overflow: initial;
+            display: block;
+            -webkit-line-clamp: unset;
+            -webkit-box-orient: unset;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        .latest-news-card .article-excerpt {
+            line-height: 1.4;
+            min-height: auto;
+            max-height: none;
+            overflow: visible;
+            text-overflow: initial;
+            display: block;
+            -webkit-line-clamp: unset;
+            -webkit-box-orient: unset;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        .latest-news-card .article-meta {
+            height: auto;
+            padding-top: 12px;
+            margin-top: auto;
+            border-top: 1px solid #eee;
+        }
+
+        .latest-news-card .article-meta img {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .latest-news-card .article-meta small {
+            line-height: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -54,22 +119,22 @@
                 <nav class="navbar navbar-expand-sm bg-dark p-0">
                     <ul class="navbar-nav ml-auto mr-n2">
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://twitter.com/indonesiadaily" target="_blank"><small class="fab fa-twitter"></small></a>
+                            <a class="nav-link text-body" href="https://twitter.com/jabarbersuara" target="_blank"><small class="fab fa-twitter"></small></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://facebook.com/indonesiadaily" target="_blank"><small class="fab fa-facebook-f"></small></a>
+                            <a class="nav-link text-body" href="https://facebook.com/jabarbersuara" target="_blank"><small class="fab fa-facebook-f"></small></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://linkedin.com/company/indonesiadaily" target="_blank"><small class="fab fa-linkedin-in"></small></a>
+                            <a class="nav-link text-body" href="https://linkedin.com/company/jabarbersuara" target="_blank"><small class="fab fa-linkedin-in"></small></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://instagram.com/indonesiadaily" target="_blank"><small class="fab fa-instagram"></small></a>
+                            <a class="nav-link text-body" href="https://instagram.com/jabarbersuara" target="_blank"><small class="fab fa-instagram"></small></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-body" href="https://mail.google.com/mail/u/0/" target="_blank"><small class="fa fa-envelope"></small></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-body" href="https://youtube.com/@indonesiadaily" target="_blank"><small class="fab fa-youtube"></small></a>
+                            <a class="nav-link text-body" href="https://youtube.com/@jabarbersuara" target="_blank"><small class="fab fa-youtube"></small></a>
                         </li>
                     </ul>
                 </nav>
@@ -86,7 +151,7 @@
 
         <!-- LOGO KIRI (MEPET) -->
         <a href="index.html" class="navbar-brand mr-5">
-            <img src="img/logo.png" alt="IndonesiaDaily" style="height: 45px;">
+            <span class="brand-logo"><span class="brand-logo-main">JABAR</span><span class="brand-logo-sub">BERSUARA</span></span>
         </a>
 
         <!-- TOGGLER -->
@@ -252,7 +317,7 @@
     <!-- Main News Slider End -->
 
 
- <!-- Breaking News Start -->
+    <!-- Breaking News Start -->
     <div class="container-fluid bg-dark py-3 mb-3">
         <div class="container">
             <div class="row align-items-center bg-dark">
@@ -271,12 +336,210 @@
     </div>
     <!-- Breaking News End -->
 
+    <style>
+        .breaking-news-carousel-wrapper {
+            position: relative;
+            padding: 0 50px;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breaking-news-carousel {
+            width: 100%;
+        }
+
+        .breaking-news-carousel .owl-item {
+            display: flex;
+            align-items: center;
+            height: 70px;
+        }
+
+        .breaking-news-carousel .owl-item.active {
+            display: flex;
+            align-items: center;
+        }
+
+        .breaking-news-carousel .breaking-news-item {
+            width: 100%;
+            padding: 0 20px;
+            color: white;
+            text-align: left;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .breaking-news-carousel .breaking-news-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: 1.4;
+            transition: opacity 0.3s ease;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            padding-left: 10px;
+        }
+
+        .breaking-news-carousel .breaking-news-item a:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        .breaking-news-carousel .owl-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            padding: 0 5px;
+        }
+
+        .breaking-news-carousel .owl-nav button {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3) !important;
+            border: none !important;
+            color: white !important;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            pointer-events: all;
+            transition: background 0.3s ease;
+            font-size: 18px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .breaking-news-carousel .owl-nav button:hover {
+            background: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        .breaking-news-carousel .owl-nav button.owl-prev {
+            left: 5px;
+        }
+
+        .breaking-news-carousel .owl-nav button.owl-next {
+            right: 5px;
+        }
+
+        .breaking-news-carousel .owl-dots {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: auto;
+        }
+
+        .breaking-news-carousel .owl-dot {
+            background: rgba(255, 255, 255, 0.3) !important;
+            border-radius: 50%;
+            margin: 0 5px;
+            width: 10px;
+            height: 10px;
+        }
+
+        .breaking-news-carousel .owl-dot.active {
+            background: white !important;
+        }
+
+        @media (max-width: 768px) {
+            .breaking-news-carousel-wrapper {
+                padding: 0 40px;
+                min-height: 60px;
+            }
+
+            .breaking-news-carousel .owl-item {
+                height: 60px;
+            }
+
+            .breaking-news-carousel .breaking-news-item a {
+                font-size: 14px;
+            }
+
+            .breaking-news-carousel .owl-nav button {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+
+            .breaking-news-carousel .owl-nav button.owl-prev {
+                left: 2px;
+            }
+
+            .breaking-news-carousel .owl-nav button.owl-next {
+                right: 2px;
+            }
+        }
+
+        /* Responsive text sizing for better scalability */
+        @media (max-width: 1200px) {
+            .latest-news-card .article-title {
+                font-size: 14px;
+            }
+
+            .latest-news-card .article-excerpt {
+                font-size: 12px;
+            }
+
+            .section-title h4 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .latest-news-card .article-title {
+                font-size: 13px;
+            }
+
+            .section-title h4 {
+                font-size: 16px;
+            }
+
+            .section-title {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .latest-news-card {
+                margin-bottom: 20px;
+            }
+
+            .latest-news-card .article-title {
+                font-size: 12px;
+            }
+
+            .section-title h4 {
+                font-size: 14px;
+            }
+
+            .section-title {
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+
+        
+
 
     <!-- Featured News Slider Start -->
-    <div class="container-fluid pt-5 mb-3">
+    <div class="container-fluid" style="background: #fff; padding: 35px 0;">
         <div class="container">
-            <div class="section-title">
-                <h4 class="m-0 text-uppercase font-weight-bold">Featured News</h4>
+            <div class="section-title mb-4">
+                <h4 class="m-0 text-uppercase font-weight-bold">Berita Unggulan</h4>
             </div>
             <div class="owl-carousel news-carousel carousel-item-4 position-relative">
                 <div class="position-relative overflow-hidden" style="height: 300px;">
@@ -339,178 +602,140 @@
 
 
     <!-- News With Sidebar Start -->
-    <div class="container-fluid">
+    <div class="container-fluid" style="background: #f8f8f8; padding: 40px 0;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="section-title">
-                                        <h4 class="m-0 text-uppercase font-weight-bold">Latest News</h4>
-                                        <a class="text-secondary font-weight-medium text-decoration-none" href="news.html">View All</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" id="latestNewsRow">
-                                <!-- dynamic content will be injected here -->
-                            </div>
-                        </div>
+                    <div class="section-title mb-4">
+                        <h4 class="m-0 text-uppercase font-weight-bold">Berita Terbaru</h4>
+                        <a class="text-primary font-weight-medium text-decoration-none" href="news.html">Lihat Semua →</a>
+                    </div>
+                    <div class="row" id="latestNewsRow">
+                        <!-- Latest news items are dynamically generated here -->
+                    </div>
+                </div>
                 
                 <div class="col-lg-4">
-                    <!-- Social Follow Start -->
-<div class="mb-3">
-    <div class="section-title mb-0">
-        <h4 class="m-0 text-uppercase font-weight-bold">Follow Us</h4>
-    </div>
-    <div class="bg-white border border-top-0 p-3">
-        <a href="https://facebook.com/indonesiadaily" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
-            <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-            <span class="font-weight-medium">85,234 Fans</span>
-        </a>
-        <a href="https://twitter.com/indonesiadaily" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
-            <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-            <span class="font-weight-medium">67,890 Followers</span>
-        </a>
-        <a href="https://linkedin.com/company/indonesiadaily" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #0185AE;">
-            <i class="fab fa-linkedin-in text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-            <span class="font-weight-medium">34,567 Connects</span>
-        </a>
-        <a href="https://instagram.com/indonesiadaily" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
-            <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-            <span class="font-weight-medium">123,456 Followers</span>
-        </a>
-        
+                    <!-- Newsletter Start -->
+                    <div class="mb-5">
+                        <div class="section-title mb-0"> 
+                            <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
+                        </div>
+                        <div class="bg-white text-center border border-top-0 p-4">
+                            <p class="font-weight-medium text-dark mb-3">Dapatkan berita terkini langsung ke inbox Anda</p>
+                            <form id="newsletterForm" action="#" method="post">
+                                <div class="input-group" style="width: 100%;">
+                                    <input id="newsletterEmail" type="email" class="form-control" placeholder="Email Anda" required>
+                                    <div class="input-group-append">
+                                        <button id="subscribeBtn" class="btn btn-primary font-weight-bold" type="submit">Langganan</button>
+                                    </div>
+                                </div>
+                                <small class="text-muted d-block mt-2">Gratis dan bisa berhenti kapan saja</small>
+                            </form>
                         </div>
                     </div>
-                    <!-- Ads End -->
+                    <!-- Newsletter End -->
 
-                    <!-- Popular News Start -->
-                    <div class="mb-3">
+                    <!-- Social Follow Start -->
+                    <div class="mb-5">
                         <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Tranding News</h4>
+                            <h4 class="m-0 text-uppercase font-weight-bold">Ikuti Kami</h4>
                         </div>
-                        <div class="bg-white border border-top-0 p-3">
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <a href="article/perhutani-majalengka.html">
-                                <img
-                                src="img/imgnews-700x435-5.jpg"
-                                alt=""
-                                style="width: 120px; height: 110px; object-fit: cover;"
-                                >
+                        <div class="bg-white border border-top-0 p-4">
+                            <a href="https://facebook.com/jabarbersuara" target="_blank" class="d-block w-100 text-white text-decoration-none mb-2" style="background: #39569E; padding: 12px;">
+                                <i class="fab fa-facebook-f mr-3" style="width: 20px;"></i>
+                                <span class="font-weight-medium">85,234 Fans</span>
+                            </a>
+                            <a href="https://twitter.com/jabarbersuara" target="_blank" class="d-block w-100 text-white text-decoration-none mb-2" style="background: #52AAF4; padding: 12px;">
+                                <i class="fab fa-twitter mr-3" style="width: 20px;"></i>
+                                <span class="font-weight-medium">67,890 Followers</span>
+                            </a>
+                            <a href="https://linkedin.com/company/jabarbersuara" target="_blank" class="d-block w-100 text-white text-decoration-none mb-2" style="background: #0185AE; padding: 12px;">
+                                <i class="fab fa-linkedin-in mr-3" style="width: 20px;"></i>
+                                <span class="font-weight-medium">34,567 Connects</span>
+                            </a>
+                            <a href="https://instagram.com/jabarbersuara" target="_blank" class="d-block w-100 text-white text-decoration-none" style="background: #C8359D; padding: 12px;">
+                                <i class="fab fa-instagram mr-3" style="width: 20px;"></i>
+                                <span class="font-weight-medium">123,456 Followers</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Social Follow End -->
+
+                    <!-- Trending News Start -->
+                    <div class="mb-5">
+                        <div class="section-title mb-0">
+                            <h4 class="m-0 text-uppercase font-weight-bold">Berita Trending</h4>
+                        </div>
+                        <div class="bg-white border border-top-0 p-4">
+                            <div class="d-flex align-items-center bg-white mb-4 pb-3 border-bottom" style="min-height: 90px;">
+                                <a href="article/perhutani-majalengka.html" class="flex-shrink-0 mr-3">
+                                    <img src="img/imgnews-700x435-5.jpg" alt="" style="width: 100px; height: 90px; object-fit: cover; border-radius: 3px;">
                                 </a>
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                <div class="flex-grow-1">
                                     <div class="mb-2">
                                         <a class="badge badge-primary news-badge mr-2" href="">Ekonomi</a>
-                                        <a class="text-body" href=""><small>Jan 26, 2026</small></a>
+                                        <a class="text-muted" href=""><small>Jan 26</small></a>
                                     </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="article/perhutani-majalengka.html">Perhutani KPH Majalengka Perkuat Sinergi...</a>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold small" href="article/perhutani-majalengka.html">Perhutani KPH Majalengka...</a>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <a href="article/bojan-hodak.html">
-                               <img
-                                src="img/news-700x435-2.jpg"
-                                alt=""
-                                style="width: 120px; height: 110px; object-fit: cover;"
-                                >
+                            <div class="d-flex align-items-center bg-white mb-4 pb-3 border-bottom" style="min-height: 90px;">
+                                <a href="article/bojan-hodak.html" class="flex-shrink-0 mr-3">
+                                    <img src="img/news-700x435-2.jpg" alt="" style="width: 100px; height: 90px; object-fit: cover; border-radius: 3px;">
                                 </a>
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                <div class="flex-grow-1">
                                     <div class="mb-2">
                                         <a class="badge badge-primary news-badge mr-2" href="">Olahraga</a>
-                                        <a class="text-body" href=""><small>Jan 27, 2026</small></a>
+                                        <a class="text-muted" href=""><small>Jan 27</small></a>
                                     </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="article/bojan-hodak.html">Pertimbangan Bojan Ogah Buru-buru Mainkan...</a>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold small" href="article/bojan-hodak.html">Bojan Pertimbang...</a>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <a href="article/masih-ingat-resbob.html">
-                                <img
-                                src="img/news-700x435-3.jpg"
-                                alt=""
-                                style="width: 120px; height: 110px; object-fit: cover;"
-                                >
+                            <div class="d-flex align-items-center bg-white mb-4 pb-3 border-bottom" style="min-height: 90px;">
+                                <a href="article/masih-ingat-resbob.html" class="flex-shrink-0 mr-3">
+                                    <img src="img/news-700x435-3.jpg" alt="" style="width: 100px; height: 90px; object-fit: cover; border-radius: 3px;">
                                 </a>
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                <div class="flex-grow-1">
                                     <div class="mb-2">
                                         <a class="badge badge-primary news-badge mr-2" href="">Hukum</a>
-                                        <a class="text-body" href=""><small>Jan 27, 2026</small></a>
+                                        <a class="text-muted" href=""><small>Jan 20</small></a>
                                     </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="article/masih-ingat-resbob.html">Masih Ingat Resbob? Tersangka Kasus...</a>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold small" href="article/masih-ingat-resbob.html">Masih Ingat Resbob?</a>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <a href="article/longsor-bandung.html">
-                                <img
-                                src="img/akang.jpg"
-                                alt=""
-                                style="width: 120px; height: 110px; object-fit: cover;"
-                                >
+                            <div class="d-flex align-items-center bg-white" style="min-height: 90px;">
+                                <a href="article/longsor-bandung.html" class="flex-shrink-0 mr-3">
+                                    <img src="img/akang.jpg" alt="" style="width: 100px; height: 90px; object-fit: cover; border-radius: 3px;">
                                 </a>
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                <div class="flex-grow-1">
                                     <div class="mb-2">
                                         <a class="badge badge-primary news-badge mr-2" href="">Ekonomi</a>
-                                        <a class="text-body" href=""><small>Jan 27, 2026</small></a>
+                                        <a class="text-muted" href=""><small>Jan 27</small></a>
                                     </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="article/longsor-bandung.html">Warga Korban Longsor Cisarua Sempat Lihat...</a>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <a href="article/berita2.html">
-                                <img
-                                src="img/berita2.jpg"
-                                alt=""
-                                style="width: 120px; height: 110px; object-fit: cover;"
-                                >
-                                </a>
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary news-badge mr-2" href="">Ekonomi</a>
-                                        <a class="text-body" href=""><small>Jan 26  , 2026</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="article/perhutani-majalengka.html">Perhutani KPH Banten Dukung Program Strategis Nasional...</a>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold small" href="article/longsor-bandung.html">Warga Korban Longsor...</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Popular News End -->
-
-                    <!-- Newsletter Start -->
-<div class="mb-3">
-    <div class="section-title mb-0"> 
-        <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
-    </div>
-    <div class="bg-white text-center border border-top-0 p-3">
-        <p>Dapatkan berita terkini langsung di inbox Anda. Berlangganan newsletter Indonesia Daily sekarang!</p>
-        <form id="newsletterForm" action="#" method="post">
-            <div class="input-group mb-2" style="width: 100%;">
-                <input id="newsletterEmail" type="email" class="form-control form-control-lg" placeholder="Email Anda" required>
-                <div class="input-group-append">
-                    <button id="subscribeBtn" class="btn btn-primary font-weight-bold px-3" type="submit">Langganan</button>
-                </div>
-            </div>
-            <small>Gratis dan bisa berhenti kapan saja</small>
-        </form>
-    </div>
-</div>
-<!-- Newsletter End -->
+                    <!-- Trending News End -->
 
                     <!-- Tags Start -->
-                    <div class="mb-3">
+                    <div class="mb-5">
                         <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Tags</h4>
+                            <h4 class="m-0 text-uppercase font-weight-bold">Kategori</h4>
                         </div>
-                        <div class="bg-white border border-top-0 p-3">
-                            <div class="d-flex flex-wrap m-n1">
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Corporate</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Health</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Education</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Science</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Foods</a>
-                                <a href="" class="btn btn-sm btn-outline-secondary m-1">Travel</a>
+                        <div class="bg-white border border-top-0 p-4">
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="search.html?q=Lingkungan" class="btn btn-sm btn-outline-secondary">Lingkungan</a>
+                                <a href="search.html?q=Ekonomi" class="btn btn-sm btn-outline-secondary">Ekonomi</a>
+                                <a href="search.html?q=Keamanan" class="btn btn-sm btn-outline-secondary">Keamanan</a>
+                                <a href="search.html?q=Pendidikan" class="btn btn-sm btn-outline-secondary">Pendidikan</a>
+                                <a href="search.html?q=Pangan" class="btn btn-sm btn-outline-secondary">Pangan</a>
+                                <a href="search.html?q=Hukum" class="btn btn-sm btn-outline-secondary">Hukum</a>
+                                <a href="search.html?q=Olahraga" class="btn btn-sm btn-outline-secondary">Olahraga</a>
+                                <a href="search.html?q=Kesehatan" class="btn btn-sm btn-outline-secondary">Kesehatan</a>
+                                <a href="search.html?q=Sosial" class="btn btn-sm btn-outline-secondary">Sosial</a>
                             </div>
                         </div>
                     </div>
@@ -523,20 +748,20 @@
 
 
     <!-- Footer Start -->
-<div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5 mt-5">
+<div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5" style="margin-top: 50px;">
     <div class="row py-4">
         <div class="col-lg-3 col-md-6 mb-5">
-            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Indonesia Daily</h5>
+            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Jabar Bersuara</h5>
             <p class="font-weight-medium text-white"><i class="fa fa-map-marker-alt mr-2"></i>Jl. Merdeka No. 123, Jakarta Pusat, Indonesia 10110</p>
             <p class="font-weight-medium text-white"><i class="fa fa-phone-alt mr-2"></i>+62 21 1234 5678</p>
-            <p class="font-weight-medium text-white"><i class="fa fa-envelope mr-2"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=IndonesiaDaily33@gmail.com" target="_blank" class="text-white">IndonesiaDaily33@gmail.com</a></p>
-            <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Follow Us</h6>
+            <p class="font-weight-medium text-white"><i class="fa fa-envelope mr-2"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=jabarbersuara@gmail.com" target="_blank" class="text-white">jabarbersuara@gmail.com</a></p>
+            <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Ikuti Kami</h6>
             <div class="d-flex justify-content-start">
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://twitter.com/indonesiadaily" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://facebook.com/indonesiadaily" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://linkedin.com/company/indonesiadaily" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://instagram.com/indonesiadaily" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square" href="https://youtube.com/@indonesiadaily" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://twitter.com/jabarbersuara" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://facebook.com/jabarbersuara" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://linkedin.com/company/jabarbersuara" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://instagram.com/jabarbersuara" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square" href="https://youtube.com/@jabarbersuara" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
@@ -582,7 +807,7 @@
     </div>
 </div>
 <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
-    <p class="m-0 text-center text-white">&copy; 2026 <a href="index.html" class="text-primary">Indonesia Daily</a>. Portal Berita Terpercaya Indonesia. All Rights Reserved.</p>
+    <p class="m-0 text-center text-white">&copy; 2026 <a href="index.html" class="text-primary">Jabar Bersuara</a>. Portal Berita Terpercaya Indonesia. All Rights Reserved.</p>
 </div>
 <!-- Footer End -->
 
@@ -606,48 +831,39 @@
     <script src="js/load-breaking-news.js"></script>
     <script src="js/load-featured-news.js"></script>
     <script src="js/load-trending-news.js"></script>
+    <script src="js/load-latest-news.js"></script>
 
     <script>
+    // Display current date
     const dateElement = document.getElementById("currentDate");
+    if (dateElement) {
+        const today = new Date();
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        dateElement.textContent = today.toLocaleDateString('en-US', options);
+    }
 
-    const today = new Date();
-
-    const options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    };
-
-    const formattedDate = today.toLocaleDateString('en-US', options);
-
-    dateElement.textContent = formattedDate;
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('newsletterForm');
-    if (!form) return;
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var emailEl = document.getElementById('newsletterEmail');
-        var email = emailEl ? emailEl.value.trim() : '';
-        if (email) {
-            alert('Terima kasih! Anda telah berlangganan: ' + email);
-            form.reset();
-        } else {
-            alert('Silakan masukkan alamat email yang valid.');
-        }
+    // Newsletter form handler
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('newsletterForm');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var emailEl = document.getElementById('newsletterEmail');
+            var email = emailEl ? emailEl.value.trim() : '';
+            if (email) {
+                alert('Terima kasih! Anda telah berlangganan: ' + email);
+                form.reset();
+            } else {
+                alert('Silakan masukkan alamat email yang valid.');
+            }
+        });
     });
-});
-</script>
-
-<!-- Dynamic Content Loaders -->
-<script src="js/load-main-carousel.js"></script>
-<script src="js/load-breaking-news.js"></script>
-<script src="js/load-featured-news.js"></script>
-<script src="js/load-trending-news.js"></script>
-<script src="js/load-latest-news.js"></script>
+    </script>
 
 
 
