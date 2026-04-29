@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="utf-8">
     <title>Login - Jabar Bersuara</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -46,18 +44,18 @@
                         <div id="alertMessage" class="alert alert-dismissible fade show" role="alert" style="display: none;">
                             <span id="alertText"></span>
                             <button type="button" class="close" onclick="hideAlert()">
-                                <span>&times;</span>
+                                <span>×</span>
                             </button>
                         </div>
 
                         <form id="loginForm" onsubmit="handleLogin(event)">
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required="">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                                <input type="password" class="form-control" id="password" placeholder="Enter your password" required="">
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="remember">
@@ -69,7 +67,7 @@
                             </div>
                             <hr>
                             <div class="text-center">
-                                <p>Don't have an account? <a href="register.html" class="text-primary font-weight-bold">Register here</a></p>
+                                <p>Don't have an account? </p>
                             </div>
                             <div class="text-center">
                                 <p><a href="test-auth.html" class="text-secondary small">ðŸ"§ Debug Authentication</a></p>
@@ -82,10 +80,10 @@
     </div>
 
     <!-- Footer -->
-    <div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5">
+    <div class="container-fluid bg-dark pt-4 px-sm-3 px-md-5">
         <div class="row py-4">
             <div class="col-12 text-center">
-                <p class="text-white">&copy; 2026 <a href="index.html" class="text-primary">Jabar Bersuara</a>. All Rights Reserved.</p>
+                <p class="text-white">© 2026 <a href="index.html" class="text-primary">Jabar Bersuara</a>. All Rights Reserved.</p>
             </div>
         </div>
     </div>
@@ -231,5 +229,5 @@
 
     dateElement.textContent = formattedDate;
     </script>
-</body>
-</html>
+
+</body></html>
