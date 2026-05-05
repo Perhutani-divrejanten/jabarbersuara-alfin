@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 8 * * *'   # otomatis update setiap 6 jam
+    - cron: '0 8 * * *'   # otomatis update setiap hari jam 15:00 WIB / 08:00 UTC
 
 jobs:
   deploy:
@@ -29,8 +29,8 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: 195.88.211.130
-          username: deploy@wartajanten.net
+          server: 195.88.211.226
+          username: deploy1@bandungbersuara.jabarinfo.id
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftp
