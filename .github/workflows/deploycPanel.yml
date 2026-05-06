@@ -36,7 +36,7 @@ jobs:
           protocol: ftp
           local-dir: ./  # atau ./ jika ingin upload semua
           server-dir: /jabarbersuara/
-          timeout: 60000
+          timeout: 500000
           dangerous-clean-slate: false
           exclude: |
             **/.git*
