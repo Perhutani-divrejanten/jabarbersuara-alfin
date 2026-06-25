@@ -26,24 +26,34 @@ jobs:
       - name: Run static generator
         run: node tools/generate.js
 
-      - name: Install lftp
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y lftp
-
-      - name: Deploy via FTP without remote delete
-        env:
-          FTP_HOST: 195.88.211.226
-          FTP_USER: deploy1@bandungbersuara.jabarinfo.id
-          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          lftp -c "
-            set ftp:passive-mode on
-            set ftp:ssl-allow no
-            open -u $FTP_USER,$FTP_PASS ftp://$FTP_HOST
-            mirror -R --parallel=3 --only-newer --verbose css /jabarbersuara/css
-            mirror -R --parallel=3 --only-newer --verbose js /jabarbersuara/js
-            mirror -R --parallel=3 --only-newer --verbose img /jabarbersuara/img
-            mirror -R --parallel=3 --only-newer --verbose article /jabarbersuara/article
-            put -O /jabarbersuara index.html news.html contact.html login.html register.html search.html clearstorage.html debug-images.html articles.json
-          "
+      - name: Deploy via FTP (only changed files)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: 195.88.211.226
+          username: deploy1@bandungbersuara.jabarinfo.id
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./
+          server-dir: /jabarbersuara/
+          state-name: .ftp-deploy-sync-state.json
+          timeout: 600000
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.github/**
+            *.bak*
+            articles_temp.json
+            .DS_Store
+            .env
+            .env.local
+            *.log
+            *.ps1
+            *.md
+            tools/**
+            lib/**
+            scripts/**
+            rebrand_*.ipynb
+            **/Thumbs.db
