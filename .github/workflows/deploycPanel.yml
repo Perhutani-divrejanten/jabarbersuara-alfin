@@ -1,1 +1,58 @@
-s
+name: Deploy ke cPanel
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 8 * * *'   # otomatis update setiap hari jam 15:00 WIB / 08:00 UTC
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies (if any)
+        run: |
+          if [ -f package.json ]; then npm ci; fi
+
+      - name: Run static generator
+        run: node tools/generate.js
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.jabarinfo.id
+          username: deploy1@bandungbersuara.jabarinfo.id
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./  # atau ./ jika ingin upload semua
+          server-dir: /jabarbersuara/
+          timeout: 100000
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.github/**
+            *.bak*
+            articles_temp.json
+            .DS_Store
+            .env
+            .env.local
+            *.log
+            TROUBLESHOOTING.md
+            AUDIT_REPORT.md
+            PERBAIKAN_STATUS.md
+            final-verification.ps1
+            fix-encoding.ps1
+            rebrand-to-warta-janten.ps1
+            replace-logo.ps1
